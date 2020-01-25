@@ -90,6 +90,11 @@ Resources:
                 Resource:
                   - !Sub 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:*'
               - Action:
+                  - ssm:GetParameter
+                Effect: Allow
+                Resource:
+                  - !Sub 'arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/CodeBuild/pypi/pytest-cleanup/upload-packages'
+              - Action:
                   - cloudformation:*
                 Effect: Allow
                 Resource:
