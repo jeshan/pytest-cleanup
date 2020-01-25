@@ -140,7 +140,9 @@ def singleton(cls):
 
 
 def save_example_scripts():
-    logger.debug(f'Saving example scripts under {test_directory}')
+    runtime_script = 'conftest-pytest-cleanup-runtime.py'
+    record_script = 'conftest-pytest-cleanup-record.py'
+    logger.debug(f'Saving example scripts ({test_filename}, {runtime_script}, {record_script}) under {test_directory}')
     with open(f'{test_directory}/{test_filename}', 'w') as f:
         f.write(
             f"""import pytest
@@ -163,7 +165,7 @@ async def test_pytest_cleanup_async_test_cases(fn, args, kwargs, expected):
 """
         )
 
-    with open(f'{test_directory}/conftest-pytest-cleanup-runtime.py', 'w') as f:
+    with open(f'{test_directory}/{runtime_script}', 'w') as f:
         f.write(
             f"""def pytest_generate_tests(metafunc):
     from pytest_cleanup import parametrize_stg_tests
@@ -174,7 +176,7 @@ async def test_pytest_cleanup_async_test_cases(fn, args, kwargs, expected):
 """
         )
 
-    with open(f'{test_directory}/conftest-pytest-cleanup-record.py', 'w') as f:
+    with open(f'{test_directory}/{record_script}', 'w') as f:
         f.write(
             f"""from pytest_cleanup import Recorder
 
