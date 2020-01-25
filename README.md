@@ -14,6 +14,7 @@ Tests that are generated "just work", i.e they are clean, unaware of implementat
 It even generates the (minimal) code that it requires to work; just 2 test functions (one for async and another for normal functions). These 2 are then parameterised with the [parametrize](https://docs.pytest.org/en/latest/parametrize.html) feature via `pytest_generate_tests`.
 
 The data files are written with `jsonpickle` and look like this:
+
 ![](images/example-data-file.png)
 
 It's also possible to run it against an existing pytest test suite (see below).

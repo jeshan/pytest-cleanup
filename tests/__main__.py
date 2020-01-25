@@ -4,7 +4,6 @@ from collections import deque
 
 import asyncio
 
-import boto3
 
 from pytest_cleanup import Recorder
 from .functions import go_async

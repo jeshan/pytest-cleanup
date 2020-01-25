@@ -189,10 +189,6 @@ def pytest_sessionfinish(session, exitstatus):
     Recorder().exit()
 
 
-def pytest_sessionstart(session):
-    Recorder().enter()
-
-
 """
         )
 
