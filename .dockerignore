@@ -1,0 +1,5 @@
+**/.pytest_cache
+**/conftest.py
+**/conftest-*.py
+**/__pycache__
+**/test_pytestcleanup_cases.py
