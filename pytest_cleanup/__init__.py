@@ -1,4 +1,4 @@
-"""A simple cli-based recorder for Python"""
+"""Automated, comprehensive and well-organised pytest test cases."""
 
 __version__ = '0.1'
 
