@@ -234,6 +234,10 @@ def remove_duplicate_cases(cases):
 
 @singleton
 class Recorder:
+    """
+    Dev note: calling `-m pytest_cleanup` isn't dropping in debugger. However, it works when using as a library `with Recorder(): ...`
+    """
+
     def __init__(self):
         logger.info('creating instance of recorder')
         self.invocations = []
