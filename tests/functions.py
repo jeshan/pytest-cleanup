@@ -81,7 +81,6 @@ async def go_async():
     return1()
     return1()
     await print_header('hey', b='hi')
-    # boto3.setup_default_session()
     # print_clients()
 
 

@@ -46,8 +46,6 @@ RUN python -m tests
 
 RUN cat test/conftest-pytest-cleanup-record.py >> test/conftest.py
 
-RUN cat test/conftest.py
-
 ENV PYTESTCLEANUP_LOG_LEVEL=TRACE
 
 # test again with both set of test cases
