@@ -1,0 +1,19 @@
+[build-system]
+requires = ["flit_core >=2,<3"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.metadata]
+module = "pytest_cleanup"
+author = "Jeshan G. BABOOA"
+author-email = "j@jeshan.co"
+home-page = "https://github.com/jeshan/pytest-cleanup"
+classifiers = ["License :: OSI Approved :: MIT License"]
+description-file = "README.md"
+requires = [
+ "jsonpickle <2",
+ "loguru <1",
+]
+
+[tool.black]
+skip-string-normalization = true
+line-length = 120

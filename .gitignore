@@ -1,0 +1,11 @@
+
+dist/
+*.iml
+__pycache__/
+ex_pytest_cleanup.main/
+test_pytestcleanup_cases.py
+botostubs
+pytest_cleanup/conftest-*-record.py
+pytest_cleanup/conftest-*-runtime.py
+pytest_cleanup/conftest.py
+# test-data/
