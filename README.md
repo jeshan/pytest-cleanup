@@ -128,6 +128,71 @@ You can also run `pytest_cleanup` against an existing test suite:
 3. Run pytest as you normally would
 4. In conftest.py, replace `pytest_runtestloop` and `pytest_sessionfinish` functions by the contents of `conftest-pytest-cleanup-runtime.py` (which has the `pytest_generate_tests` function)
 
+# Features
+- Handles functions that return generators by automatically extending these into Python lists so that they can be asserted.
+- Support for asyncio coroutines
+- Supports nested (local) functions with `dill` library (appears as base64-encoded in the json files)
+- Removes duplicate test cases (i.e identical arguments that return identical return values)
+
+# Example projects
+## botostubs
+The [botostubs](https://github.com/jeshan/botostubs) (by yours truly) went from 0 to 71% adopting pytest_cleanup:
+```
+-- Docs: https://docs.pytest.org/en/latest/warnings.html
+
+---------- coverage: platform linux, python 3.6.10-final-0 -----------
+Name      Stmts   Miss  Cover   Missing
+---------------------------------------
+main.py     208     60    71%   93, 133, 161, 179-184, 191, 199-210, 214-248, 296-297, 305-310, 314-316, 320-322, 326
+```
+
+This project helped itself during development :grin:. See the [Dockerfile](Dockerfile) for details.
+
+
+# Notes
+- Running over and over write test cases in new files to avoid overwriting your previous test cases. The filenames are appended with -00, -01, ... for up to 10 files.
+- It works well if your functions are [deterministic](https://en.wikipedia.org/wiki/Deterministic_algorithm) (e.g pure).
+> If not, then you should probably make them so!
+- If your function arguments are not serialisable, then test cases won't be generated. You will see an error in the logs for that function.
+- This project uses pickling (with jsonpickle or dill) to load the test data. If you're the one generated test data, then it should be fine loading it during tests. Otherwise, don't load untrusted test data. 
+
+# Configuration
+`pytest_cleanup` is configurable exclusively via environment variables:
+
+- `PYTESTCLEANUP_LOG_LEVEL`: Set to DEBUG to investigate/report issues.
+- `PYTESTCLEANUP_TEST_DATA_DIRECTORY`: Change it the default (`test-data`) is inconvenient.
+- `PYTESTCLEANUP_TEST_DIRECTORY`: Specify your test directory explicitly. By default, will check in order: `test`, `tests`, `testing`, or otherwise assumes the current directory.
+- `PYTESTCLEANUP_FUNCTION`: If you invoke `python -m pytest_cleanup your.module`, it will invoke its no-arg `main` by default. Set this env var to change it.
+- `PYTESTCLEANUP_TEST_CASE_COUNT_PER_FUNCTION`: By default, will record 5 test cases per function. 
+- `PYTESTCLEANUP_SERIALISATION_DEPTH`: Decrease it in case you get a maximum recursion depth exception while deserialising. Default 500.
+- `PYTESTCLEANUP_FILESIZE_LIMIT_MB`: Limit the json content size. Useful if you don't want to get big test data files. Default: 5 MB.
+- `PYTESTCLEANUP_INCLUDE_MODULES`: Force include certain modules from consideration. Some modules are excluded by default (those installed in the virtualenv, built-in functions and other system packages). Accepts wildcard patterns via [fnmatch](https://docs.python.org/3/library/fnmatch.html) Takes precedence over `PYTESTCLEANUP_EXCLUDE_MODULES`.
+- `PYTESTCLEANUP_EXCLUDE_MODULES`: Force exclude certain modules from consideration.
+- `PYTESTCLEANUP_ALLOW_ALL_MODULES`: Force considers all modules. **Warning**: slow!
+
+# TODO
+- Minor issue: functions in your main module may be loaded twice, creating identical test cases twice for that function. (maybe happening only in this project)
+- Handle test suites that are run in `tox`. The test files generated are in tox's virtualenv temp directory and we need a way to get them out of it so that tox can use them in subsequent runs.
+
+## Ideas
+- Since we now have example test cases, we could increase their value by generating property-based tests out of them with [Hypothesis](https://hypothesis.readthedocs.io/en/latest/). If anybody is interested in picking this up, let me know.
+
+# What if you have test failures?
+> It may be due to a bug in pytest_cleanup but it's probably because it's difficult to serialise all data types, e.g file descriptors.
+
+## Cases that you should handle on your own
+- Problem: Assertion does not work properly on your objects
+> Solution: You should define an `__eq__` function in your class. This will ensure that pytest asserts the return values properly.
+
+![](images/assert-object-without-eq.png)
+
+## How to report in issue
+1. Raise an issue [here](https://github.com/jeshan/pytest_cleanup/issues/new) about the test failure (or upvote an existing one)
+2. Paste your function code (or its signature)
+3. Paste the json file that `pytest_cleanup` generated, e.g `test-data/path/to/function/01.json`
+4. State what you were expecting
+5. State what happened instead
+
 # Release process
 Deployment pipeline described in [templates/deployment-pipeline.yaml](templates/deployment-pipeline.yaml).
 
@@ -135,6 +200,26 @@ Project can also be released with:
 - `docker-compose run release` : Enter password when prompted
 
 
+# Acknowledgements
+Thanks to the following projects for making this possible:
+- jsonpickle
+- dill
+
+But also huge thanks to the pytest team for making the most exciting test framework that I've ever seen.
+Other libraries used:
+- flit (packaging and deployment to PyPI)
+- loguru (logging)
+- pytest plugins like pytest-progress, pytest-asyncio, pytest-randomly, pytest-cov
+- sceptre (for deploying to aws)
+
+
+# Related
+These projects resemble this one but mine requires much less effort on your part and generates even less boilerplate :+1:
+- https://smarie.github.io/python-pytest-cases/
+- https://github.com/Figglewatts/pytestgen
+
+
 # Copyright
+Copyright 2020. Jeshan G. BABOOA
 Released under the MIT licence. See file named [LICENCE](LICENCE) for details.
 
