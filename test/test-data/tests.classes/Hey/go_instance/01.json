@@ -1,0 +1,61 @@
+{
+  "class": {
+    "py/type": "tests.classes.Hey"
+  },
+  "function": {
+    "py/function": "tests.classes.Hey.go_instance"
+  },
+  "module": {
+    "py/repr": "tests.classes/tests.classes"
+  },
+  "test_cases": [
+    {
+      "args": {
+        "py/tuple": [
+          {
+            "py/object": "tests.classes.Hey",
+            "value": 0.004112903969623938
+          }
+        ]
+      },
+      "kwargs": {},
+      "return_value": 0.012338711908871813
+    },
+    {
+      "args": {
+        "py/tuple": [
+          {
+            "py/object": "tests.classes.Hey",
+            "value": 0.22224997948063963
+          }
+        ]
+      },
+      "kwargs": {},
+      "return_value": 0.6667499384419189
+    },
+    {
+      "args": {
+        "py/tuple": [
+          {
+            "py/object": "tests.classes.Hey",
+            "value": 2.389171378599026
+          }
+        ]
+      },
+      "kwargs": {},
+      "return_value": 7.167514135797078
+    },
+    {
+      "args": {
+        "py/tuple": [
+          {
+            "py/object": "tests.classes.Hey",
+            "value": 2.5567120642981687
+          }
+        ]
+      },
+      "kwargs": {},
+      "return_value": 7.670136192894506
+    }
+  ]
+}

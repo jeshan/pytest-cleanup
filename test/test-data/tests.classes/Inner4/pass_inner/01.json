@@ -1,0 +1,45 @@
+{
+  "class": {
+    "py/type": "tests.classes.Inner4"
+  },
+  "function": {
+    "py/function": "tests.classes.Inner4.pass_inner"
+  },
+  "module": {
+    "py/repr": "tests.classes/tests.classes"
+  },
+  "test_cases": [
+    {
+      "args": {
+        "py/tuple": [
+          {
+            "py/object": "tests.classes.Inner4"
+          },
+          {
+            "py/b64": "gANjZGlsbC5fZGlsbApfY3JlYXRlX2Z1bmN0aW9uCnEAKGNkaWxsLl9kaWxsCl9sb2FkX3R5cGUKcQFYCAAAAENvZGVUeXBlcQKFcQNScQQoSwBLAEsASwJLU0MMdABkAYMBAQBkAFMAcQVOWAMAAABoZXlxBoZxB1gFAAAAcHJpbnRxCIVxCSlYNgAAAC9tbnQvc2RiL2lkZWFQcm9qZWN0cy9weXRlc3QtY2xlYW51cC90ZXN0cy9fX21haW5fXy5weXEKaAZLD0MCAAFxCykpdHEMUnENY19fYnVpbHRpbl9fCl9fbWFpbl9fCmgGTk59cQ5OdHEPUnEQLg=="
+          }
+        ]
+      },
+      "kwargs": {},
+      "return_value": {
+        "py/b64": "gANjZGlsbC5fZGlsbApfY3JlYXRlX2Z1bmN0aW9uCnEAKGNkaWxsLl9kaWxsCl9sb2FkX3R5cGUKcQFYCAAAAENvZGVUeXBlcQKFcQNScQQoSwBLAEsASwJLU0MMdABkAYMBAQBkAFMAcQVOWAMAAABoZXlxBoZxB1gFAAAAcHJpbnRxCIVxCSlYNgAAAC9tbnQvc2RiL2lkZWFQcm9qZWN0cy9weXRlc3QtY2xlYW51cC90ZXN0cy9fX21haW5fXy5weXEKaAZLD0MCAAFxCykpdHEMUnENY19fYnVpbHRpbl9fCl9fbWFpbl9fCmgGTk59cQ5OdHEPUnEQLg=="
+      }
+    },
+    {
+      "args": {
+        "py/tuple": [
+          {
+            "py/object": "tests.classes.Inner4"
+          },
+          {
+            "py/function": "tests.classes.Inner3.go"
+          }
+        ]
+      },
+      "kwargs": {},
+      "return_value": {
+        "py/function": "tests.classes.Inner3.go"
+      }
+    }
+  ]
+}

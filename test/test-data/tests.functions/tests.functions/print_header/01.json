@@ -1,0 +1,22 @@
+{
+  "class": null,
+  "function": {
+    "py/function": "tests.functions.print_header"
+  },
+  "module": {
+    "py/repr": "tests.functions/tests.functions"
+  },
+  "test_cases": [
+    {
+      "args": {
+        "py/tuple": [
+          "hey"
+        ]
+      },
+      "kwargs": {
+        "b": "hi"
+      },
+      "return_value": 1
+    }
+  ]
+}

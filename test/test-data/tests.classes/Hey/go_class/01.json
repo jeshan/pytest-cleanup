@@ -1,0 +1,24 @@
+{
+  "class": {
+    "py/type": "tests.classes.Hey"
+  },
+  "function": {
+    "py/function": "tests.classes.Hey.go_class"
+  },
+  "module": {
+    "py/repr": "tests.classes/tests.classes"
+  },
+  "test_cases": [
+    {
+      "args": {
+        "py/tuple": [
+          {
+            "py/type": "tests.classes.Hey"
+          }
+        ]
+      },
+      "kwargs": {},
+      "return_value": 123
+    }
+  ]
+}

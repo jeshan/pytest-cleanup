@@ -1,0 +1,24 @@
+{
+  "class": null,
+  "function": {
+    "py/function": "tests.functions.higher_order"
+  },
+  "module": {
+    "py/repr": "tests.functions/tests.functions"
+  },
+  "test_cases": [
+    {
+      "args": {
+        "py/tuple": [
+          {
+            "py/b64": "gANjdGVzdHMuZnVuY3Rpb25zCmhpZ2hlcl9vcmRlcjIKcQAu"
+          }
+        ]
+      },
+      "kwargs": {},
+      "return_value": {
+        "py/b64": "gANjZGlsbC5fZGlsbApfY3JlYXRlX2Z1bmN0aW9uCnEAKGNkaWxsLl9kaWxsCl9sb2FkX3R5cGUKcQFYCAAAAENvZGVUeXBlcQKFcQNScQQoSwBLAEsASwFLE0MGiACDAFMAcQVOhXEGKSlYNwAAAC9tbnQvc2RiL2lkZWFQcm9qZWN0cy9weXRlc3QtY2xlYW51cC90ZXN0cy9mdW5jdGlvbnMucHlxB1gFAAAAaW5uZXJxCEsqQwIAAXEJWAIAAABmbnEKhXELKXRxDFJxDWN0ZXN0cy5mdW5jdGlvbnMKX19kaWN0X18KaAhOY2RpbGwuX2RpbGwKX2NyZWF0ZV9jZWxsCnEOY3Rlc3RzLmZ1bmN0aW9ucwpoaWdoZXJfb3JkZXIyCnEPhXEQUnERhXESfXETTnRxFFJxFS4="
+      }
+    }
+  ]
+}

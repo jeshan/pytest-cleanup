@@ -1,0 +1,25 @@
+{
+  "class": {
+    "py/type": "tests.classes.Hey"
+  },
+  "function": {
+    "py/function": "tests.classes.Hey.call_all_method"
+  },
+  "module": {
+    "py/repr": "tests.classes/tests.classes"
+  },
+  "test_cases": [
+    {
+      "args": {
+        "py/tuple": [
+          {
+            "py/object": "tests.classes.Hey",
+            "value": 0.22224997948063963
+          }
+        ]
+      },
+      "kwargs": {},
+      "return_value": null
+    }
+  ]
+}

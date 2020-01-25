@@ -1,0 +1,24 @@
+{
+  "class": {
+    "py/type": "tests.classes.Inner3"
+  },
+  "function": {
+    "py/function": "tests.classes.Inner3.go"
+  },
+  "module": {
+    "py/repr": "tests.classes/tests.classes"
+  },
+  "test_cases": [
+    {
+      "args": {
+        "py/tuple": [
+          {
+            "py/object": "tests.classes.Inner3"
+          }
+        ]
+      },
+      "kwargs": {},
+      "return_value": 1
+    }
+  ]
+}

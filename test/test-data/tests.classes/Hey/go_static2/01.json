@@ -1,0 +1,20 @@
+{
+  "class": {
+    "py/type": "tests.classes.Hey"
+  },
+  "function": {
+    "py/function": "tests.classes.Hey.go_static2"
+  },
+  "module": {
+    "py/repr": "tests.classes/tests.classes"
+  },
+  "test_cases": [
+    {
+      "args": {
+        "py/tuple": []
+      },
+      "kwargs": {},
+      "return_value": "static2"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "class": null,
+  "function": {
+    "py/function": "tests.functions.return1"
+  },
+  "module": {
+    "py/repr": "tests.functions/tests.functions"
+  },
+  "test_cases": [
+    {
+      "args": {
+        "py/tuple": []
+      },
+      "kwargs": {},
+      "return_value": 1
+    }
+  ]
+}

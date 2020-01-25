@@ -1,0 +1,57 @@
+{
+  "class": null,
+  "function": {
+    "py/function": "tests.functions.generator1"
+  },
+  "module": {
+    "py/repr": "tests.functions/tests.functions"
+  },
+  "test_cases": [
+    {
+      "args": {
+        "py/tuple": [
+          2
+        ]
+      },
+      "kwargs": {},
+      "return_value": {
+        "py/iterator": [
+          0,
+          1
+        ],
+        "py/object": "builtins.generator"
+      }
+    },
+    {
+      "args": {
+        "py/tuple": [
+          3
+        ]
+      },
+      "kwargs": {},
+      "return_value": {
+        "py/iterator": [
+          0,
+          1,
+          2
+        ],
+        "py/object": "builtins.generator"
+      }
+    },
+    {
+      "args": {
+        "py/tuple": [
+          2
+        ]
+      },
+      "kwargs": {},
+      "return_value": {
+        "py/iterator": [
+          0,
+          1
+        ],
+        "py/object": "builtins.generator"
+      }
+    }
+  ]
+}

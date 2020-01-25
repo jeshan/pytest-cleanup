@@ -1,0 +1,29 @@
+{
+  "class": {
+    "py/type": "tests.classes.Inner5"
+  },
+  "function": {
+    "py/function": "tests.classes.Inner5.pass_inner"
+  },
+  "module": {
+    "py/repr": "tests.classes/tests.classes"
+  },
+  "test_cases": [
+    {
+      "args": {
+        "py/tuple": [
+          {
+            "py/object": "tests.classes.Inner5"
+          },
+          {
+            "py/type": "tests.classes.Inner3.Inner"
+          }
+        ]
+      },
+      "kwargs": {},
+      "return_value": {
+        "py/type": "tests.classes.Inner5.Inner"
+      }
+    }
+  ]
+}

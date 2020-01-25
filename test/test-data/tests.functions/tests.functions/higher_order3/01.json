@@ -1,0 +1,20 @@
+{
+  "class": null,
+  "function": {
+    "py/function": "tests.functions.higher_order3"
+  },
+  "module": {
+    "py/repr": "tests.functions/tests.functions"
+  },
+  "test_cases": [
+    {
+      "args": {
+        "py/tuple": []
+      },
+      "kwargs": {},
+      "return_value": {
+        "py/b64": "gANjdGVzdHMuZnVuY3Rpb25zCnJldHVybjEKcQAu"
+      }
+    }
+  ]
+}
