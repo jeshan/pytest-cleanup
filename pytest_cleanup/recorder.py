@@ -31,6 +31,13 @@ include_modules = os.environ.get('PYTESTCLEANUP_INCLUDE_MODULES', '').split(',')
 exclude_modules = os.environ.get('PYTESTCLEANUP_EXCLUDE_MODULES', '').split(',')
 
 
+# TODO: did not handle _dynamic_level from loguru properly
+# TODO: functions for which module is None fails, e.g log function in loguru
+# TODO: needs to have at least a reliable way to run smoke test, with and without invoking with -m
+# TODO: always disallow certain functions/methods, like <method 'with_traceback' of 'BaseException' objects>
+# TODO: seemingly duplicate files are being written: # botocore.model/ServiceModel/resolve_shape_ref/01.json (636841), # botocore.model/ServiceModel/resolve_shape_ref/02.json (636841),# botocore.model/ServiceModel/resolve_shape_ref/03.json (636841),# botocore.model/ServiceModel/resolve_shape_ref/04.json (636841),# botocore.model/ServiceModel/resolve_shape_ref/05.json (636841),# botocore.model/ServiceModel/resolve_shape_ref/06.json (636841)
+
+
 def fn_description(f):
     return f'{f.__module__}.{f.__qualname__}'
 
