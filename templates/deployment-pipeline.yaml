@@ -1,0 +1,99 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Deployment pipeline for pytest-cleanup'
+
+Parameters:
+  GithubRepo:
+    Type: String
+    Default: jeshan/pytest-cleanup
+
+Resources:
+  DeployPytestCleanup:
+    Properties:
+      Artifacts:
+        Type: NO_ARTIFACTS
+      BadgeEnabled: false
+      Cache:
+        Modes:
+          - LOCAL_DOCKER_LAYER_CACHE
+          - LOCAL_SOURCE_CACHE
+        Type: LOCAL
+      EncryptionKey: !Sub 'arn:aws:kms:${AWS::Region}:${AWS::AccountId}:alias/aws/s3'
+      Environment:
+        ComputeType: BUILD_GENERAL1_SMALL
+        EnvironmentVariables:
+          - Name: FLIT_PASSWORD
+            Type: PARAMETER_STORE
+            Value: /CodeBuild/pypi/pytest-cleanup/upload-packages
+        Image: aws/codebuild/docker:18.09.0
+        PrivilegedMode: true
+        Type: LINUX_CONTAINER
+      LogsConfig:
+        CloudWatchLogs:
+          GroupName: !Ref 'LogGroup'
+          Status: ENABLED
+      ServiceRole: !GetAtt 'Role.Arn'
+      Source:
+        BuildSpec: |-
+          version: 0.2
+
+          env:
+            variables:
+              LC_ALL: C.UTF-8
+              LANG: C.UTF-8
+
+          phases:
+            pre_build:
+              commands:
+                - pip3 install sceptre
+            build:
+              commands:
+                - docker-compose run -e FLIT_PASSWORD=$FLIT_PASSWORD release
+                - sceptre --no-colour launch -y main
+        GitCloneDepth: 1
+        InsecureSsl: false
+        Location: !Sub https://github.com/${GithubRepo}
+        Type: GITHUB
+      TimeoutInMinutes: 10
+      Triggers:
+        Webhook: true
+        FilterGroups:
+          - - Type: EVENT
+              Pattern: PUSH
+            - Type: HEAD_REF
+              Pattern: '^refs/heads/master$'
+    Type: AWS::CodeBuild::Project
+
+  LogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      RetentionInDays: 30
+
+  Role:
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: codebuild.amazonaws.com
+        Version: '2012-10-17'
+      Policies:
+        - PolicyDocument:
+            Statement:
+              - Action:
+                  - logs:CreateLogGroup
+                  - logs:CreateLogStream
+                  - logs:DeleteLogGroup
+                  - logs:DescribeLogGroups
+                  - logs:PutLogEvents
+                Effect: Allow
+                Resource:
+                  - !Sub 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:*'
+              - Action:
+                  - cloudformation:*
+                Effect: Allow
+                Resource:
+                  - !Sub arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/pytest-cleanup-*
+            Version: '2012-10-17'
+          PolicyName: pytest-cleanup-pol
+    Type: AWS::IAM::Role
