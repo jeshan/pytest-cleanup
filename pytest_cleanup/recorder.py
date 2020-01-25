@@ -145,7 +145,7 @@ def save_example_scripts():
         f.write(
             f"""import pytest
 
-from pytest_cleanup.common import is_function, assert_return_values
+from pytest_cleanup.common import assert_return_values
 
 
 def test_pytest_cleanup_sync_test_cases(fn, args, kwargs, expected):
