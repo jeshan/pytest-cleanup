@@ -146,7 +146,9 @@ Name      Stmts   Miss  Cover   Missing
 main.py     208     60    71%   93, 133, 161, 179-184, 191, 199-210, 214-248, 296-297, 305-310, 314-316, 320-322, 326
 ```
 
-This project helped itself during development :grin:. See the [Dockerfile](Dockerfile) for details.
+## pytest_cleanup
+
+This project helped itself during development :grin:. See the [test-data directory](test/test-data) directory for example json files and the [Dockerfile](Dockerfile) for details on how I got there.
 
 
 # Notes
