@@ -196,7 +196,7 @@ This project helped itself during development :grin:. See the [test-data directo
 5. State what happened instead
 
 # Release process
-[Create a tag](https://github.com/jeshan/pytest-cleanup/releases/new?tag=v0.1.2) starting with v on github. This will trigger a deployment pipeline described in [templates/deployment-pipeline.yaml](templates/deployment-pipeline.yaml).
+[Create a tag](https://github.com/jeshan/pytest-cleanup/releases/new?tag=v0.) starting with v on github. This will trigger a deployment pipeline described in [templates/deployment-pipeline.yaml](templates/deployment-pipeline.yaml).
 
 
 # Acknowledgements
