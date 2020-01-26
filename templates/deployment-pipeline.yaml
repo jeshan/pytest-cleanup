@@ -47,7 +47,8 @@ Resources:
                 - pip3 install sceptre
             build:
               commands:
-                - docker-compose run -e FLIT_PASSWORD=$FLIT_PASSWORD release
+                - export VERSION=`echo ${CODEBUILD_WEBHOOK_HEAD_REF} | cut -c 12-`
+                - docker-compose run -e FLIT_PASSWORD=$FLIT_PASSWORD -e VERSION=$VERSION release
                 - sceptre --no-colour launch -y main
         GitCloneDepth: 1
         InsecureSsl: false
@@ -60,7 +61,7 @@ Resources:
           - - Type: EVENT
               Pattern: PUSH
             - Type: HEAD_REF
-              Pattern: '^refs/heads/master$'
+              Pattern: '^refs/tags/v.*'
     Type: AWS::CodeBuild::Project
 
   LogGroup:
