@@ -10,6 +10,7 @@ home-page = "https://github.com/jeshan/pytest-cleanup"
 classifiers = ["License :: OSI Approved :: MIT License"]
 description-file = "README.md"
 requires = [
+ "dill <1",
  "jsonpickle <2",
  "loguru <1",
 ]
