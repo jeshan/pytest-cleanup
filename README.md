@@ -211,6 +211,12 @@ Other libraries used:
 - pytest plugins like pytest-progress, pytest-asyncio, pytest-randomly, pytest-cov
 - sceptre (for deploying to aws)
 
+# Contributing
+You can use `pipenv` to create a virtualenv with the necessary dependencies:
+- `pip install pipenv`
+- `pipenv shell`
+
+Project tested with Python 3.7
 
 # Related
 These projects resemble this one but mine requires much less effort on your part and generates even less boilerplate :+1:

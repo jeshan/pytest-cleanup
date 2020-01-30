@@ -6,6 +6,7 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
+dill = "<1"
 loguru = "<1"
 flit = "<3,>2"
 pytest = "<5.4"
