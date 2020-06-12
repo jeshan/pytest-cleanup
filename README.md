@@ -218,6 +218,11 @@ You can use `pipenv` to create a virtualenv with the necessary dependencies:
 
 Project tested with Python 3.7
 
+# Infrastructure
+This is how the deployment pipeline looks like on AWS:
+
+![](/diagram.png)
+
 # Related
 These projects resemble this one but mine requires much less effort on your part and generates even less boilerplate :+1:
 - https://smarie.github.io/python-pytest-cases/
