@@ -223,6 +223,8 @@ This is how the deployment pipeline looks like on AWS:
 
 ![](/diagram.png)
 
+*Image automatically generated with [cfnbuddy](https://www.cfnbuddy.com)*
+
 # Related
 These projects resemble this one but mine requires much less effort on your part and generates even less boilerplate :+1:
 - https://smarie.github.io/python-pytest-cases/
